@@ -17,21 +17,23 @@ defineProps<{
 
 <style scoped>
 .student-card {
-  background-color: #f5f5f5;
-  border-radius: 8px;
   padding: 20px;
-  margin: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 250px;
+  cursor: pointer;
+  border: 1px solid #39495c;
+  margin-bottom: 18px;
+}
+.student-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
 h3 {
   margin-top: 0;
-  color: #333;
+  font-size: 20px;
 }
 
 p {
-  color: #666;
-  font-size: 16px;
+  font-size: 14px;
 }
 </style>

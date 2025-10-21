@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
-import EventCategoryOrganizer from '@/components/EventCategoryOrganizer.vue'
 import type { Event } from '@/types'
 import { ref, onMounted } from 'vue'
 import EventService from '@/services/EventService'
 
 const events = ref<Event[]>([])
 
+
+
 onMounted(() => {
   EventService.getEvents()
     .then((response) => {
       events.value = response.data
     })
-    .catch((error) => {
-      console.error('There was an error!', error)
+    .catch(() => {
+      // // 使用模拟数据
+      // events.value = mockEvents
+      console.log('获取事件数据失败')
     })
 })
 </script>
@@ -22,10 +25,7 @@ onMounted(() => {
   <h1>Events For Good</h1>
   <div class="events">
     <div v-if="events">
-      <div v-for="event in events" :key="event.id" class="event-container">
-        <EventCard :event="event" />
-        <EventCategoryOrganizer :event="event" />
-      </div>
+      <EventCard v-for="event in events" :key="event.id" :event="event" />
     </div>
     <div v-else>Loading events...</div>
   </div>
