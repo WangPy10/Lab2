@@ -5,13 +5,13 @@ const apiClient = axios.create({
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
-  timeout: 10000 // 设置超时时间为10秒
+  timeout: 10000,
 })
 
 export default {
   getStudents() {
     return apiClient.get('/students')
-  }
+  },
 }
